@@ -76,10 +76,10 @@ Game.prototype.shoot = function(x, y, targetPlayer) {
 		return CONST.TYPE_MISS;
 	}
 };
-// Creates click event listeners for the grid
+// Click listeners for grid
 Game.prototype.shootListener = function(e) {
 	var self = e.target.self;
-	// Extract coordinates from event listener
+	// Get coordinates from listener
 	var x = parseInt(e.target.getAttribute('data-x'), 10);
 	var y = parseInt(e.target.getAttribute('data-y'), 10);
 	var result = null;
@@ -97,7 +97,7 @@ Game.prototype.shootListener = function(e) {
 		Game.gameOver = false;
 	}
 };
-// Creates click event listeners on each of the ship names in the roster
+// Click event listeners on each of the ship names in the roster
 Game.prototype.rosterListener = function(e) {
 	var self = e.target.self;
 	// Remove all classes of 'placing' from the fleet roster first
@@ -107,15 +107,14 @@ Game.prototype.rosterListener = function(e) {
 		classes = classes.replace('placing', '');
 		roster[i].setAttribute('class', classes);
 	}
-
 	
-	
-	// Set the class of the target ship to 'placing'
+	// Sets the class of the target ship to 'placing'
 	Game.placeShipType = e.target.getAttribute('id');
 	document.getElementById(Game.placeShipType).setAttribute('class', 'placing');
 	Game.placeShipDirection = parseInt(document.getElementById('rotate-button').getAttribute('data-direction'), 10);
 	self.placingOnGrid = true;
 };
+
 // Creates click event listeners on the human player's grid to handle
 // ship placement after the user has selected a ship name
 Game.prototype.placementListener = function(e) {
@@ -125,7 +124,7 @@ Game.prototype.placementListener = function(e) {
 		var x = parseInt(e.target.getAttribute('data-x'), 10);
 		var y = parseInt(e.target.getAttribute('data-y'), 10);
 		
-		// Don't screw up the direction if the user tries to place again.
+		// Doesn't screw up the direction if the user tries to place again.
 		var successful = self.humanFleet.placeShip(x, y, Game.placeShipDirection, Game.placeShipType);
 		if (successful) {
 			// Done placing this ship
@@ -248,7 +247,7 @@ Game.prototype.areAllShipsPlaced = function() {
 			return false;
 		}
 	}
-	// Reset temporary variables
+	// Resets temporary variables
 	Game.placeShipDirection = 0;
 	Game.placeShipType = '';
 	Game.placeShipCoords = [];
@@ -281,7 +280,7 @@ Game.prototype.showRestartSidebar = function() {
 	var sidebar = document.getElementById('restart-sidebar');
 	sidebar.setAttribute('class', 'highlight');
 
-	// Deregister listeners
+	// Unregister listeners
 	var computerCells = document.querySelector('.computer-player').childNodes;
 	for (var j = 0; j < computerCells.length; j++) {
 		computerCells[j].removeEventListener('click', this.shootListener, false);
@@ -311,7 +310,7 @@ Game.prototype.createGrid = function() {
 		}
 	}
 };
-// Initializes the Game. Also resets the game if previously initialized
+// Initializes the Game. 
 Game.prototype.init = function() {
 	this.humanGrid = new Grid(Game.size);
 	this.computerGrid = new Grid(Game.size);
