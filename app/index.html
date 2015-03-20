@@ -1,4 +1,4 @@
-<!doctype html>
+<!-- <!doctype html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -35,5 +35,71 @@
 	</div>
 <script src="scripts/main.js"></script>	
 <script src="scripts/BS.js"></script>
+</body>
+</html> -->
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title>New Library</title>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="../bower_components/normalize-css/normalize.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+
+    <!-- build:js scripts/vendor/modernizr.js -->
+    <script src="../bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+  </head>
+  <body>
+
+    <div class="container">
+    	<h1>Battleship</h1>
+    	<div class="game-container">
+    		<div id="restart-sidebar" class="hidden">
+    			<h2>Try Again</h2>
+    			<button id="restart-game">Restart Game</button>
+    		</div><div id="roster-sidebar">
+    			<h2>Place Your Ships</h2>
+    			<ul class="fleet-roster">
+    				<li id="patrolboat">Patrol Boat</li>
+    				<li id="submarine">Submarine</li>
+    				<li id="destroyer">Destroyer</li>
+    				<li id="battleship">Battleship</li>
+    				<li id="carrier">Aircraft Carrier</li>
+    			</ul>
+    			<button id="rotate-button" data-direction="0">Rotate Ship</button>
+    			<button id="start-game" class="hidden">Start Game</button>
+    			<button id="place-randomly" class="hidden">Place Randomly and Start</button>
+    		</div>
+    		<div class="grid-container">
+    			<h2>Your Fleet</h2>
+    			<div class="grid human-player"><span class="js"></span></div>
+    		</div><div class="grid-container">
+    			<h2>Enemy Fleet</h2>
+    			<div class="grid computer-player"><span class="js"></span></div>
+    		</div>
+    	</div>
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/underscore/underscore.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js scripts/main.js -->
+        <script src="scripts/main.js"></script>
+        <script src="scripts/BS.js"></script>
+        <!-- endbuild -->
 </body>
 </html>
